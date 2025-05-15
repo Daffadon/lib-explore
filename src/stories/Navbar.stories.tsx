@@ -10,7 +10,13 @@ const meta: Meta<StoryProps> = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      options: ["fixed", "scrolled"],
+      options: ["primary", "secondary"],
+      control: {
+        type: "select",
+      },
+    },
+    sideBarPosition: {
+      options: ["top", "right"],
       control: {
         type: "select",
       },
@@ -24,9 +30,10 @@ type Story = StoryObj<StoryProps>;
 
 export const DefaultNavbar: Story = {
   args: {
-    variant: "fixed",
+    variant: "primary",
+    sideBarPosition: "right",
   },
-  render: ({ variant }) => {
-    return <Navbar variant={variant} />;
+  render: ({ ...args }) => {
+    return <Navbar {...args} />;
   },
 };

@@ -1,0 +1,70 @@
+@use "../../style/color";
+
+.drawer-container {
+  z-index: 999;
+  position: fixed;
+
+  &--right {
+    right: 0;
+    width: 300px;
+    background-color: white;
+    height: 100dvh;
+    border-left: 1px color.$primary-color-darkest solid;
+  }
+  &--top {
+    justify-content: center;
+    width: 100%;
+  }
+  &__items {
+    display: flex;
+    flex-direction: column;
+    &--primary {
+      width: 100%;
+      background-color: white;
+
+      &.drawer-container__items--top {
+        border-left: 1px color.$primary-color-darkest solid;
+        border-right: 1px color.$primary-color-darkest solid;
+        border-bottom: 2px color.$primary-color-darkest solid;
+        border-top: none;
+      }
+    }
+    &--secondary {
+      border: none;
+      background-color: color.$primary-color-darkest;
+      &.drawer-container__items--right {
+        height: 100%;
+      }
+    }
+    &--top {
+      width: 100%;
+      height: max-content;
+      padding-bottom: 30px;
+      border-radius: 0 0 15px 15px;
+      border: none;
+    }
+    &--right {
+      width: 100%;
+    }
+  }
+}
+.drawer-itemlist {
+  display: flex;
+  padding: 0 20px;
+}
+.close-container {
+  align-self: flex-end;
+  margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  &__icon {
+    width: 40px;
+    height: 40px;
+    &--primary {
+      color: black;
+    }
+    &--secondary {
+      color: white;
+    }
+  }
+}

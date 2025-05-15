@@ -1,0 +1,26 @@
+@use "../../../style/color";
+@use "../../../style/variable";
+.sidebar {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__item {
+    font-size: larger;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    &--primary {
+      &:hover {
+        color: color.$primary-color-dark;
+      }
+    }
+    &--secondary {
+      color: white;
+      &:hover {
+        color: color.$primary-color;
+      }
+    }
+  }
+}

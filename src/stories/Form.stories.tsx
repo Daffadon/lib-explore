@@ -54,7 +54,7 @@ export const DefaultForm: Story = {
   parameters: {
     layout: "centered",
     controls: {
-      exclude: ["children", "onSubmit", "handleSubmit", ""],
+      exclude: ["children", "onSubmit", "handleSubmit"],
     },
   },
   render: ({ orientation, titlePosition, formTitle }) => {
