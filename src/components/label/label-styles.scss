@@ -1,0 +1,15 @@
+.label {
+  cursor: pointer;
+  &__required {
+    color: red;
+  }
+  &__lg {
+    font-size: larger;
+  }
+  &__md {
+    font-size: large;
+  }
+  &__sm {
+    font-size: medium;
+  }
+}

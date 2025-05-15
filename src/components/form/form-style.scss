@@ -1,0 +1,35 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  &__title {
+    font-size: x-large;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+    &--left {
+      text-align: left;
+    }
+    &--center {
+      text-align: center;
+    }
+    &--right {
+      text-align: right;
+    }
+  }
+  &__input {
+    &--horizontal {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    &--vertical {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+}

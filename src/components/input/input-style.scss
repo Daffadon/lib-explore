@@ -1,0 +1,209 @@
+@use "../../style/color";
+
+.input-container {
+  display: flex;
+  height: 4vh;
+  padding-left: 2px;
+  justify-content: center;
+  align-items: center;
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &__top {
+      flex-direction: column;
+      align-items: start;
+    }
+    &__right {
+      flex-direction: row;
+      .input {
+        order: 1;
+      }
+      label {
+        order: 2;
+      }
+    }
+    &__left {
+      flex-direction: row;
+      .input {
+        order: 2;
+      }
+      label {
+        order: 1;
+      }
+    }
+  }
+}
+
+.input {
+  display: flex;
+  height: 4vh;
+  padding-left: 2px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  &__base {
+    border: none;
+    border-radius: 4px;
+    padding: 6px 8px;
+    outline: 2px color.$primary-color solid;
+  }
+  &__radio {
+    outline: none;
+    appearance: none;
+    margin: 0;
+    border: 2px solid color.$primary-color;
+    border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      display: block;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: background-color 0.1s ease-in-out;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:checked::after {
+      background-color: color.$primary-color;
+    }
+
+    &:hover::after {
+      background-color: color.$primary-color-dark;
+    }
+
+    &--lg {
+      width: 20px;
+      height: 20px;
+
+      &::after {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    &--md {
+      width: 18px;
+      height: 18px;
+
+      &::after {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &--sm {
+      width: 16px;
+      height: 16px;
+
+      &::after {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  &__checkbox {
+    outline: none;
+    appearance: none;
+    margin: 0;
+    border: 2px solid color.$primary-color;
+    border-radius: 4px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: transparent;
+      transition: background-color 0.1s ease-in-out;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      border: solid color.$primary-color;
+      border-width: 0 2px 2px 0;
+      opacity: 0;
+    }
+
+    &:checked::after {
+      opacity: 1;
+      background-color: color.$primary-color;
+    }
+
+    &:hover::after {
+      background-color: color.$primary-color-dark;
+    }
+    &--lg {
+      width: 20px;
+      height: 20px;
+
+      &::after {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &--md {
+      width: 18px;
+      height: 18px;
+
+      &::after {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    &--sm {
+      width: 16px;
+      height: 16px;
+
+      &::after {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+
+  &__required {
+    color: red;
+    align-self: self-start;
+  }
+  &__lg {
+    font-size: large;
+    &::placeholder {
+      font-size: large;
+    }
+  }
+
+  &__md {
+    font-size: medium;
+    &::placeholder {
+      font-size: medium;
+    }
+  }
+
+  &__sm {
+    font-size: small;
+    &::placeholder {
+      font-size: small;
+    }
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  // -moz-appearance: textfield;
+  appearance: textfield;
+}
