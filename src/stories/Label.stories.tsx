@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 import Label from "../components/label/Label";
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, within } from "@storybook/test";
 
 type StoryProps = ComponentProps<typeof Label>;
 
@@ -41,5 +42,13 @@ export const DefaultLabel: Story = {
   },
   render: ({ ...args }) => {
     return <Label {...args} />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("Input")).toBeInTheDocument();
+    await expect(canvas.getByText("*")).toBeInTheDocument();
+    await expect(canvas.getByText("*")).toHaveStyle({
+      color: "rgb(255, 0, 0)",
+    });
   },
 };

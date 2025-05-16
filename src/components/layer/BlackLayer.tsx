@@ -7,6 +7,7 @@ interface BlackLayerProps {
 const BlackLayer = ({ onClick }: BlackLayerProps) => {
   return createPortal(
     <motion.div
+      data-testid="black-layer"
       className="black-layer"
       initial={{ opacity: 0 }}
       animate={{ opacity: 0.8 }}

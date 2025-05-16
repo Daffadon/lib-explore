@@ -1,4 +1,5 @@
-import { Button } from "../../button/Button";
+import ButtonLink from "../../button/button-link/ButtonLink";
+import { Button } from "../../button/default/Button";
 import Drawer from "../../drawer/Drawer";
 import "./sidebar.scss";
 
@@ -46,9 +47,9 @@ const Sidebar = ({
         >
           Contact
         </a>
-        <Button variant={variant} size={"md"} type={"submit"}>
+        <ButtonLink variant={variant} size={"md"} linkTo="/login">
           Login
-        </Button>
+        </ButtonLink>
       </div>
     </Drawer>
   );

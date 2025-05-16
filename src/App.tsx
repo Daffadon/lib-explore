@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useForm, type SubmitHandler } from "react-hook-form";
+import {
+  loginSchema,
+  type LoginValidation,
+} from "./page/login/types/login-types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import FormCustom from "./components/form/FormCustom";
+import Input from "./components/input/Input";
+import { Button } from "./components/button/default/Button";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginValidation>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  const submitHandler: SubmitHandler<LoginValidation> = async (
+    formData: LoginValidation
+  ) => {
+    console.log(formData);
+  };
   return (
-    <>
+    <FormCustom<LoginValidation>
+      handleSubmit={handleSubmit}
+      onSubmit={submitHandler}
+      orientation={"vertical"}
+      formTitle={"login"}
+      titlePosition={"center"}
+    >
+      <Input<LoginValidation>
+        size={"lg"}
+        type={"text"}
+        placeHolder={"Your Email"}
+        required={false}
+        registerTitle={"email"}
+        register={register}
+        errors={errors}
+        label="Email"
+        labelPosition="top"
+      />
+      <Input<LoginValidation>
+        size={"lg"}
+        type={"password"}
+        placeHolder={"Your Password"}
+        required={false}
+        registerTitle={"password"}
+        register={register}
+        errors={errors}
+        label="Password"
+        labelPosition="top"
+      />
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Button variant={"primary"} size={"md"} type={"submit"}>
+          Login
+        </Button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </FormCustom>
+  );
 }
 
-export default App
+export default App;

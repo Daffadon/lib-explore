@@ -19,10 +19,10 @@ interface InputProps<T extends FieldValues> {
   errors: FieldErrors<T>;
 }
 const Input = <T extends FieldValues>({
-  type = "text",
-  size = "sm",
+  type,
+  size,
   placeHolder,
-  required = false,
+  required,
   label,
   labelPosition,
   register,
@@ -70,7 +70,7 @@ const Input = <T extends FieldValues>({
         {required && !label ? <span className="input__required">*</span> : null}
       </div>
       {errors[registerTitle] && (
-        <p className="text-red-600">
+        <p className="input__error">
           {errors[registerTitle]?.message as string}
         </p>
       )}

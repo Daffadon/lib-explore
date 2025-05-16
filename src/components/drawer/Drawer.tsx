@@ -47,6 +47,7 @@ const Drawer = ({
             >
               <div className="close-container">
                 <IoCloseOutline
+                  data-testid="close-container__icon"
                   className={`close-container__icon close-container__icon--${variant}`}
                   onClick={onClick}
                 />

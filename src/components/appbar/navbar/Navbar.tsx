@@ -1,9 +1,10 @@
 import "./navbar.scss";
 import Logo from "../../../assets/svg/cad-it-logo.svg";
-import { Button } from "../../button/Button";
+import { Button } from "../../button/default/Button";
 import { FaBars } from "react-icons/fa6";
 import { useState } from "react";
 import Sidebar from "../sidebar/Sidebar";
+import ButtonLink from "../../button/button-link/ButtonLink";
 interface NavbarProps {
   variant: "primary" | "secondary";
   sideBarPosition: "top" | "right";
@@ -28,34 +29,42 @@ const Navbar = ({ variant, sideBarPosition }: NavbarProps) => {
         </a>
         <div className="navbar__container">
           <a
+            target="_self"
             href="/profile"
             className={`navbar__item navbar__item--${variant}`}
           >
             Profile
           </a>
           <a
+            target="_self"
             href="/partnership"
             className={`navbar__item navbar__item--${variant}`}
           >
             Partnership
           </a>
           <a
+            target="_self"
             href="/article"
             className={`navbar__item navbar__item--${variant}`}
           >
             Article
           </a>
           <a
+            target="_self"
             href="/contact"
             className={`navbar__item navbar__item--${variant}`}
           >
             Contact
           </a>
-          <Button variant={variant} size={"md"} type={"submit"}>
+          <ButtonLink variant={variant} size={"md"} linkTo="/login">
             Login
-          </Button>
+          </ButtonLink>
         </div>
-        <FaBars className={`bars bars__${variant}`} onClick={sidebarHandler} />
+        <FaBars
+          data-testid="navbar-bars-icon"
+          className={`bars bars__${variant}`}
+          onClick={sidebarHandler}
+        />
       </nav>
     </>
   );

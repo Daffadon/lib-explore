@@ -1,4 +1,4 @@
-@use "../../style/color";
+@use "../../../style/color";
 
 .button {
   outline: none;
@@ -7,7 +7,8 @@
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
   &:hover {
-    scale: 1.05;
+    transform: scale(1.05);
+    transition: transform 0.2s;
   }
 }
 .button-variant {

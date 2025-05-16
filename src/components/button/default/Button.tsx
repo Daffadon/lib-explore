@@ -12,12 +12,13 @@ type ButtonProps = PropsWithChildren<{
 export const Button = ({
   children,
   onClick,
-  variant = "primary",
-  size = "md",
-  type = "button",
+  variant,
+  size,
+  type,
 }: ButtonProps) => {
   return (
     <button
+      data-testid="button-test"
       className={`button button-variant__${variant} button-size__${size}`}
       type={type}
       onClick={onClick}

@@ -8,6 +8,8 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/experimental-addon-test",
     "@storybook/preset-scss",
+    "storybook-addon-pseudo-states",
+    "@storybook/addon-coverage",
   ],
   framework: {
     name: "@storybook/react-vite",
